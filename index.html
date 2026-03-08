@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Catatan Nilai Siswa</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="wrapper">
+
+  <header>
+    <p class="header-tag">// sistem pencatat nilai</p>
+    <h1>Catatan <em>Nilai</em><br>Siswa</h1>
+    <p class="subtitle">Input nama &amp; nilai → lihat statistik real-time</p>
+  </header>
+
+  <div class="card">
+    <p class="card-title">Input Data Siswa</p>
+    <div class="form-row">
+      <div class="field">
+        <label for="inputNama">Nama Siswa</label>
+        <input type="text" id="inputNama" placeholder="cth. Budi Santoso" autocomplete="off" />
+      </div>
+      <div class="field">
+        <label for="inputNilai">Nilai (0–100)</label>
+        <input type="number" id="inputNilai" placeholder="85" min="0" max="100" />
+      </div>
+      <div class="field">
+        <label style="opacity:0">aksi</label>
+        <button class="btn-add" onclick="tambahSiswa()">+ Tambah</button>
+      </div>
+    </div>
+    <p class="error-msg" id="errorMsg"></p>
+  </div>
+
+  <div class="stats-grid">
+    <div class="stat-box avg">
+      <p class="stat-label">Rata-rata</p>
+      <p class="stat-value" id="statAvg"><span class="stat-empty">—</span></p>
+      <p class="stat-name" id="statAvgSub">belum ada data</p>
+    </div>
+    <div class="stat-box high">
+      <p class="stat-label">Nilai Tertinggi</p>
+      <p class="stat-value" id="statHigh"><span class="stat-empty">—</span></p>
+      <p class="stat-name" id="statHighName">—</p>
+    </div>
+    <div class="stat-box low">
+      <p class="stat-label">Nilai Terendah</p>
+      <p class="stat-value" id="statLow"><span class="stat-empty">—</span></p>
+      <p class="stat-name" id="statLowName">—</p>
+    </div>
+  </div>
+
+  <div class="table-card">
+    <div class="table-header">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <p class="card-title" style="margin:0">Daftar Siswa</p>
+        <span class="count-badge" id="countBadge">0 siswa</span>
+      </div>
+      <button class="btn-clear" onclick="hapusSemua()">Hapus Semua</button>
+    </div>
+    <div id="tableWrap">
+      <div class="empty-state">
+        <div class="empty-icon">📋</div>
+        <p class="empty-text">Belum ada data siswa</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
